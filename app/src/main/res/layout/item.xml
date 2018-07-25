@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="131dp"
+        android:layout_height="131dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:foregroundGravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/drama"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/image_icon_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:alpha="0.8"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Hello"
+        android:textColor="#423737"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/image_icon"
+        app:layout_constraintStart_toStartOf="@+id/image_icon"
+        app:layout_constraintTop_toBottomOf="@+id/image_icon" />
+
+
+</android.support.constraint.ConstraintLayout>
