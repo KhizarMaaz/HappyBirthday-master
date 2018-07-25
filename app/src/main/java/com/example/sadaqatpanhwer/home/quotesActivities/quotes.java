@@ -113,39 +113,39 @@ public class quotes extends AppCompatActivity {
                 // normally use a viewholder
                 v = inflater.inflate(R.layout.test_card2, parent, false);
             }
-            ((TextView) v.findViewById(R.id.txt)).setText("God blessed over me and he sent you down for me. I remember how my heart skipped its beats when i saw you first time. Now when you look at me it makes me want to be a perfect man i can be. Happy birthday dear!!");
+            ((TextView) v.findViewById(R.id.txt)).setText("a");
             if(position==0){
-                ((TextView) v.findViewById(R.id.txt)).setText("My soul mate, more than my friend, my partner i’m nothing without you. On the special occasion of your birthday i want to remind you all the reasons why i love you. Happy Birthday !");
+                ((TextView) v.findViewById(R.id.txt)).setText("b");
             }
             if(position==1){
-                ((TextView) v.findViewById(R.id.txt)).setText("I may not be there to give you what you want but i promise to be with you always with all my heart and love. Happy Birthday Honey!!");
+                ((TextView) v.findViewById(R.id.txt)).setText("c");
             }
             if(position==2){
-                ((TextView) v.findViewById(R.id.txt)).setText("I hope your birthday cake is as sweet as your smile. Happy Birthday dear..stay happy and healthy!!");
+                ((TextView) v.findViewById(R.id.txt)).setText("d");
             }
             if(position==3){
-                ((TextView) v.findViewById(R.id.txt)).setText("Hye jani so finally 19 ki hogie hmm , i hope tmy ab zara c akal ay meri akal sa pydal jan , Happy birthday!");
+                ((TextView) v.findViewById(R.id.txt)).setText("e");
             }
             if(position==4){
-                ((TextView) v.findViewById(R.id.txt)).setText("Tum chahy 19 ki ho jao ya phir 91 ki  humary bech jb b kuch hoga gusy ma many tumy yhi khna ha k 2 sal ki bachi ho kiya !");
+                ((TextView) v.findViewById(R.id.txt)).setText("f");
             }
             if(position==5){
-                ((TextView) v.findViewById(R.id.txt)).setText("Happy Birthday programmer ki jan , i love u soOooo much");
+                ((TextView) v.findViewById(R.id.txt)).setText("g");
             }
             if(position==6){
-                ((TextView) v.findViewById(R.id.txt)).setText("Smile may be starting of friendship, a touch may be a starting of love but a person like you can make life worth living.");
+                ((TextView) v.findViewById(R.id.txt)).setText("h");
             }
             if(position==7){
-                ((TextView) v.findViewById(R.id.txt)).setText("You look the best and very sweet with your cute smile. Today is your birthday smile the whole day to remain happy and to keep happy everybody. Happy Birthday baby!!");
+                ((TextView) v.findViewById(R.id.txt)).setText("i");
             }
             if(position==8){
-                ((TextView) v.findViewById(R.id.txt)).setText("Whenever i feel disappointed and depressed, a single thought of you make me all happy. Happy Birthday..may you live long dear!!");
+                ((TextView) v.findViewById(R.id.txt)).setText("j");
             }
             if(position==9){
-                ((TextView) v.findViewById(R.id.txt)).setText("We have been with each other for a long time and my love for you is growing day by day… i hope time will not matter in our love. Happy Birthday Dear!!");
+                ((TextView) v.findViewById(R.id.txt)).setText("k");
             }
             if(position==10){
-                ((TextView) v.findViewById(R.id.txt)).setText("Ok one last Happy walla Birthday meri jan");
+                ((TextView) v.findViewById(R.id.txt)).setText("l");
             }
 
 
