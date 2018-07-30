@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
@@ -36,4 +37,14 @@ dependencies {
     compile project(path: ':autoimageslider')
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.+'
     compile 'com.felipecsl:gifimageview:2.1.0'
+    compile 'com.google.firebase:firebase-core:9.0.2'
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile "com.google.firebase:firebase-auth:9.0.2"
+    compile 'com.google.firebase:firebase-storage:9.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
 }

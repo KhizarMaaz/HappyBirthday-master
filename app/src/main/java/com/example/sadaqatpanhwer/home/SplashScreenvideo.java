@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.example.sadaqatpanhwer.home.FingerAndCode.FingerPrint;
+import com.example.sadaqatpanhwer.home.FingerAndCode.withoudFingr;
+
 
 public class SplashScreenvideo extends AppCompatActivity {
 
@@ -49,7 +49,7 @@ public class SplashScreenvideo extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SplashScreenvideo.this,FingerPrint.class));
+                startActivity(new Intent(SplashScreenvideo.this,withoudFingr.class));
                 finish();
             }
         });

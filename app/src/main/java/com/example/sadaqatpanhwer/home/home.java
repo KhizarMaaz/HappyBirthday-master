@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.example.sadaqatpanhwer.home.quotesActivities.quotes;
 import com.example.sadaqatpanhwer.home.wishCard.WishActivity;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.felipecsl.gifimageview.library.GifImageView;
 
 public class home extends AppCompatActivity {
@@ -28,6 +30,7 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         gridView = (GridView)findViewById(R.id.gridview);
+
 
 
         GridAdapter adapter = new GridAdapter(home.this,lettersIcon,letterList);
