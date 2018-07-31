@@ -28,7 +28,41 @@
                android:textColor="@android:color/black"
                android:textSize="20dp"
                android:fontFamily="cursive"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="270dp"
+            android:background="#5a65ab"/>
 
+            <ImageButton
+                android:id="@+id/whatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button"
+                android:background="@null"
+                android:src="@drawable/whatsapp"
+                android:layout_marginTop="275dp"
+                android:layout_marginLeft="20dp"/>
+
+            <ImageButton
+                android:id="@+id/messenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button"
+                android:background="@null"
+                android:src="@drawable/messenger"
+                android:layout_marginTop="275dp"
+                android:layout_marginLeft="100dp"/>
+
+            <ImageButton
+                android:id="@+id/facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button"
+                android:background="@null"
+                android:src="@drawable/facebook"
+                android:layout_marginTop="278dp"
+                android:layout_marginLeft="180dp"/>
 
         </RelativeLayout>
 

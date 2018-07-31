@@ -43,7 +43,7 @@ class withoudFingr : AppCompatActivity() {
                 //firebase auth
                 mAuth = FirebaseAuth.getInstance();
 
-        //facebook sdk
+                //facebook sdk
         var btnLoginFacebook = findViewById<Button>(R.id.login_button)
         btnLoginFacebook.setOnClickListener(View.OnClickListener {
             // Login
@@ -52,7 +52,7 @@ class withoudFingr : AppCompatActivity() {
             LoginManager.getInstance().registerCallback(callbackManager,
                     object : FacebookCallback<LoginResult> {
                         override fun onSuccess(loginResult: LoginResult) {
-                            setFacebookData(loginResult);
+                            setFacebookData(loginResult)
                         }//end of onsuccess
 
                 private fun setFacebookData(loginResult: LoginResult) {
@@ -84,11 +84,13 @@ class withoudFingr : AppCompatActivity() {
                         Log.i("Login" + "LastName", lastName)
                         Log.i("Login" + "Gender", gender)
 
+
                     } catch (e: JSONException) {
                         e.printStackTrace()
                     }
 
                 }
+
             })
                     val parameters = Bundle()
                     parameters.putString("fields", "id,email,first_name,last_name,gender")
@@ -106,6 +108,7 @@ class withoudFingr : AppCompatActivity() {
 
                         }
                     })
+
         })//end of facebook button
 
                 //proceed to activity direct
@@ -115,7 +118,7 @@ class withoudFingr : AppCompatActivity() {
                     //Toast.makeText(this@withoudFingr, "Its toast!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, home::class.java)
                     startActivity(intent)
-                });//end of start button10
+                })//end of start button
 
             }//end of method
 
@@ -133,15 +136,17 @@ class withoudFingr : AppCompatActivity() {
         updateUI(currentUser)
     }
 
+    private fun detail() {
+
+        var fbname = findViewById<TextView>(R.id.name)
+        var fbemail = findViewById<TextView>(R.id.email)
+
+        fbname.setText(""+firstName)
+        fbemail.setText(""+email)
+
+    }
     private fun updateUI(user: FirebaseUser?) {
-        //hideProgressDialog()
-
-//        var fbname = findViewById<TextView>(R.id.name)
-//        var fbemail = findViewById<TextView>(R.id.email)
-//
-//        fbname.setText(firstName)
-//        fbemail.setText(email)
-
+        //detail()
     }
 
 }//end of class

@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sadaqatpanhwer.home.quotesActivities.quotes;
@@ -17,6 +18,8 @@ import com.facebook.appevents.AppEventsLogger;
 import com.felipecsl.gifimageview.library.GifImageView;
 
 public class home extends AppCompatActivity {
+
+    private ImageButton info;
 
     GridView gridView;
     String letterList[]={"Quotes","Pictures","Wish","Info"};
@@ -29,10 +32,16 @@ public class home extends AppCompatActivity {
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
 
+        info = findViewById(R.id.user);
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(home.this, fb.class);
+               startActivity(myIntent);
+            }
+        });
+
         gridView = (GridView)findViewById(R.id.gridview);
-
-
-
         GridAdapter adapter = new GridAdapter(home.this,lettersIcon,letterList);
         gridView.setAdapter(adapter);
 
