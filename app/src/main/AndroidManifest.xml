@@ -23,7 +23,7 @@
         <activity android:name=".MemoriesActivity" />
         <activity android:name=".FingerAndCode.withoudFingr" />
         <activity android:name=".home" />
-        <activity android:name=".fb"/>
+        <activity android:name=".fb" />
         <activity android:name=".quotesActivities.quotes" />
         <activity android:name=".pictures" />
 
@@ -48,7 +48,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".profile" />
-        <activity android:name=".fb"></activity>
+        <activity android:name=".fb" />
+        <activity android:name=".signup"></activity>
     </application>
 
 </manifest>

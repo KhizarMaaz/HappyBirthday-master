@@ -1,5 +1,6 @@
 package com.example.sadaqatpanhwer.home.FingerAndCode
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,13 +9,19 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.sadaqatpanhwer.home.R
+import com.example.sadaqatpanhwer.home.R.id.password
 import com.example.sadaqatpanhwer.home.home
+import com.example.sadaqatpanhwer.home.signup
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONException
 import org.json.JSONObject
@@ -33,6 +40,8 @@ class withoudFingr : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private var firstName: String=""
     private var email: String =""
+    private lateinit var userEmail:EditText
+    private lateinit var userPass:EditText
 
             override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +51,8 @@ class withoudFingr : AppCompatActivity() {
         setContentView(R.layout.activity_withoud_fingr)
                 //firebase auth
                 mAuth = FirebaseAuth.getInstance();
-
+             userEmail = findViewById<EditText>(R.id.userName)
+            userPass = findViewById<EditText>(R.id.password)
                 //facebook sdk
         var btnLoginFacebook = findViewById<Button>(R.id.login_button)
         btnLoginFacebook.setOnClickListener(View.OnClickListener {
@@ -112,13 +122,48 @@ class withoudFingr : AppCompatActivity() {
         })//end of facebook button
 
                 //proceed to activity direct
-                var startButton = findViewById<Button>(R.id.startbtn)
+                var startButton = findViewById<TextView>(R.id.startbtn)
 
                 startButton.setOnClickListener(View.OnClickListener {
                     //Toast.makeText(this@withoudFingr, "Its toast!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, home::class.java)
                     startActivity(intent)
                 })//end of start button
+
+                var signUpButoon = findViewById<TextView>(R.id.signUp)
+
+                signUpButoon.setOnClickListener(View.OnClickListener {
+                   // Toast.makeText(this@withoudFingr, "Its sign in", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, signup::class.java)
+                    startActivity(intent)
+                })//end of signup button
+
+
+                //login button for email and pass
+                var loginButton = findViewById<Button>(R.id.login)
+                loginButton.setOnClickListener(View.OnClickListener {
+                    // Toast.makeText(this@withoudFingr, "Its sign in", Toast.LENGTH_SHORT).show()
+
+                        val progressDialog = ProgressDialog.show(this, "pleease wait...", "processing..", true)
+                        mAuth!!.signInWithEmailAndPassword(userEmail.getText().toString(), userPass.getText().toString()).addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
+
+                            progressDialog.dismiss()
+
+                            if (task.isSuccessful) {
+                                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                                val i = Intent(this, home::class.java)
+                                i.putExtra("Email", mAuth!!.currentUser!!.getEmail())
+                                startActivity(i)
+                                userEmail.setText("")
+                                userPass.setText("")
+                            } else {
+                                Log.e("Error", task.exception!!.toString())
+                                Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                            }
+                        })
+
+                    })//end of login button
+
 
             }//end of method
 
