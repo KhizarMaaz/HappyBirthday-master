@@ -12,6 +12,6 @@ public class fb extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fb);
     tvEmail = (TextView)findViewById(R.id.email);
-    tvEmail.setText(getIntent().getExtras().getString("Email"));
+//    tvEmail.setText(getIntent().getExtras().getString("Email"));
     }
 }
