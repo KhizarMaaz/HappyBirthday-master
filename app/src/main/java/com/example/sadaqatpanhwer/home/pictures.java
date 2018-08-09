@@ -1,17 +1,25 @@
 package com.example.sadaqatpanhwer.home;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v4.app.ShareCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
 
+import java.io.File;
+
 public class pictures extends AppCompatActivity {
     SliderLayout sliderLayout;
-
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +56,18 @@ public class pictures extends AppCompatActivity {
 
             sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
             final int finalI = i;
+            Toast.makeText(this,id,Toast.LENGTH_LONG).show();
+            sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
+                @Override
+                public void onSliderClick(SliderView sliderView) {
+                    Toast.makeText(pictures.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
 
+                }
+            });
             //at last add this view in your layout :
             sliderLayout.addSliderView(sliderView);
         }
 
     }
+
 }

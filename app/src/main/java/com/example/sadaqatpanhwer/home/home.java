@@ -10,9 +10,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import com.example.sadaqatpanhwer.home.quotesActivities.quotes;
-import com.example.sadaqatpanhwer.home.wishCard.WishActivity;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.felipecsl.gifimageview.library.GifImageView;
@@ -53,7 +51,7 @@ public class home extends AppCompatActivity {
 
                 switch (position) {
                     case 0:
-                        Intent myIntent = new Intent(home.this, WishActivity.class);
+                        Intent myIntent = new Intent(home.this, MemoriesActivity.class);
                        home.this.startActivity(myIntent);
                         break;
                     case 1:
@@ -69,8 +67,8 @@ public class home extends AppCompatActivity {
                         break;
 
                     case 3:
-                        Intent myIntent3 = new Intent(home.this, MemoriesActivity.class);
-                        home.this.startActivity(myIntent3);
+//                        Intent myIntent3 = new Intent(home.this, MemoriesActivity.class);
+//                        home.this.startActivity(myIntent3);
                         break;
 
 
