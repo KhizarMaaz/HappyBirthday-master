@@ -56,14 +56,19 @@ public class pictures extends AppCompatActivity {
 
             sliderView.setImageScaleType(ImageView.ScaleType.CENTER_CROP);
             final int finalI = i;
-            Toast.makeText(this,id,Toast.LENGTH_LONG).show();
+
             sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
                 @Override
                 public void onSliderClick(SliderView sliderView) {
                     Toast.makeText(pictures.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
-
+//                    final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                    shareIntent.setType("*/*");
+//                    final File photoFile = new File(getFilesDir(), "image3.jpg");
+//                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(photoFile));
+//                    startActivity(Intent.createChooser(shareIntent, "Share image using"));
                 }
             });
+
             //at last add this view in your layout :
             sliderLayout.addSliderView(sliderView);
         }
