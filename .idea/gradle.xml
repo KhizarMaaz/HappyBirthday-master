@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/apppp" />
             <option value="$PROJECT_DIR$/autoimageslider" />
-            <option value="$PROJECT_DIR$/myLibrary" />
             <option value="$PROJECT_DIR$/swipedeck" />
           </set>
         </option>

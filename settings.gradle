@@ -1,3 +1,4 @@
-include ':app', ':mylibrary'
+include ':apppp'
 include ':swipedeck'
 include ':autoimageslider'
+include ':app'
