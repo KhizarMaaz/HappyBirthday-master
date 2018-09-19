@@ -11,9 +11,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.sadaqatpanhwer.home.FingerAndCode.withoudFingr;
+import com.example.sadaqatpanhwer.home.FingerAndCode.signIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,6 +25,7 @@ public class signup extends AppCompatActivity {
         private EditText txtPassword;
         private FirebaseAuth firebaseAuth;
         private Button regButton;
+        private ImageButton backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,7 @@ public class signup extends AppCompatActivity {
         txtEmailAdress = (EditText) findViewById(R.id.regEmail);
         txtPassword = (EditText) findViewById(R.id.regPass);
         regButton = (Button)findViewById(R.id.register);
+        backButton = (ImageButton)findViewById(R.id.back);
         firebaseAuth = FirebaseAuth.getInstance();
 
         regButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +56,7 @@ public class signup extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
                                 Toast.makeText(signup.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(signup.this, withoudFingr.class);
+                                Intent i = new Intent(signup.this, signIn.class);
                                 startActivity(i);
                             } else {
                                 Log.e("Error", task.getException().toString());
@@ -64,6 +67,13 @@ public class signup extends AppCompatActivity {
                 }
             }
         });//end of click on reg
-
-    }
-}
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(signup.this,signInOrSignUp.class);
+                startActivity(i);
+                finish();
+            }
+        });//end of backbuton
+    }//end of oncreate
+}//end of classs

@@ -8,26 +8,19 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.sadaqatpanhwer.home.R
-import com.example.sadaqatpanhwer.home.R.id.password
 import com.example.sadaqatpanhwer.home.home
-import com.example.sadaqatpanhwer.home.signup
+import com.example.sadaqatpanhwer.home.signInOrSignUp
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import org.json.JSONException
-import org.json.JSONObject
 import java.util.*
-import com.google.firebase.auth.FirebaseUser
-class withoudFingr : AppCompatActivity() {
+
+class signIn : AppCompatActivity() {
     private var callbackManager: CallbackManager? = null
     private var SignIn: Button?=null
     private var mAuth: FirebaseAuth? = null
@@ -36,17 +29,19 @@ class withoudFingr : AppCompatActivity() {
     private lateinit var userEmail:EditText
     private lateinit var userPass:EditText
     private lateinit var profile: Profile
+    private lateinit var backbtn: ImageButton
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_withoud_fingr)
+        setContentView(R.layout.activity_signin)
                 //firebase auth
                 mAuth = FirebaseAuth.getInstance();
 
             userEmail = findViewById<EditText>(R.id.userName)
             userPass = findViewById<EditText>(R.id.password)
+
 
             //for fb
 //            firstname = findViewById<TextView>(R.id.name)
@@ -64,7 +59,7 @@ class withoudFingr : AppCompatActivity() {
             LoginManager.getInstance().registerCallback(callbackManager,
                     object : FacebookCallback<LoginResult> {
                         override fun onSuccess(loginResult: LoginResult) {
-                            Toast.makeText(this@withoudFingr, "Its toast!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@signIn, "Its toast!", Toast.LENGTH_SHORT).show()
 //                        profile = Profile.getCurrentProfile()
 //                            var id = profile.id
 //                            var firs=profile.firstName
@@ -91,19 +86,20 @@ class withoudFingr : AppCompatActivity() {
              ****************************************/
                 var startButton = findViewById<TextView>(R.id.startbtn)
                 startButton.setOnClickListener(View.OnClickListener {
-                    //Toast.makeText(this@withoudFingr, "Its toast!", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this@signIn, "Its toast!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, home::class.java)
                     startActivity(intent)
                 })//end of start button
 
-                /****************************************
-                 * Sign up Button
-                 ****************************************/
-                  var signUpButoon = findViewById<TextView>(R.id.signUp)
-                signUpButoon.setOnClickListener(View.OnClickListener {
-                    val intent = Intent(this, signup::class.java)
-                    startActivity(intent)
-                })//end of signup button
+            /****************************************
+             * back button
+             ****************************************/
+            backbtn = findViewById<ImageButton>(R.id.backbtn)
+            backbtn.setOnClickListener(View.OnClickListener {
+                val intent = Intent(this, signInOrSignUp::class.java)
+                startActivity(intent)
+                finish()
+            })//end of start button
 
                 /****************************************
                  * login button for email and pass
@@ -111,7 +107,7 @@ class withoudFingr : AppCompatActivity() {
 
                 var loginButton = findViewById<Button>(R.id.login)
                 loginButton.setOnClickListener(View.OnClickListener {
-                    // Toast.makeText(this@withoudFingr, "Its sign in", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(this@signIn, "Its sign in", Toast.LENGTH_SHORT).show()
                     if(userEmail == null || userEmail.equals("null") || userEmail.length()<=0 && userPass.equals("null") || userPass==null || userPass.length()<=0){
                          Toast.makeText(this, "please enter username and password", Toast.LENGTH_SHORT).show()
                     }else {

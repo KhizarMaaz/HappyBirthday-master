@@ -12,8 +12,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.VideoView;
 
-import com.example.sadaqatpanhwer.home.FingerAndCode.withoudFingr;
-
 
 public class SplashScreenvideo extends AppCompatActivity {
 
@@ -49,7 +47,7 @@ public class SplashScreenvideo extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SplashScreenvideo.this,withoudFingr.class));
+                startActivity(new Intent(SplashScreenvideo.this,signInOrSignUp.class));
                 finish();
             }
         });
