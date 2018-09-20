@@ -14,6 +14,7 @@
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:textColor="#ffff"
         android:layout_marginTop="744dp"
         android:background="@drawable/custonshape"
         android:backgroundTint="#AE0606"
@@ -37,6 +38,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/custonshape"
         android:text="SignUp"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signIn" />

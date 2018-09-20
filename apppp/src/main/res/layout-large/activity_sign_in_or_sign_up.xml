@@ -20,6 +20,7 @@
         android:fontFamily="sans-serif"
         android:text="SignIn"
         android:textAllCaps="false"
+        android:textColor="#ffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +29,7 @@
         android:id="@+id/signUpp"
         android:layout_width="300dp"
         android:layout_height="45dp"
+        android:textColor="#ffff"
         android:backgroundTint="@color/colorPrimaryDark"
         android:textAllCaps="false"
         android:layout_marginEnd="8dp"

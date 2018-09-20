@@ -11,12 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:fontFamily="monospace"
-        android:text="Happy Birthday"
+        android:fontFamily="cursive"
         android:textColor="#ffff"
+        android:text="Happy Birthday"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="20dp"/>
 
 </android.support.constraint.ConstraintLayout>
