@@ -9,9 +9,8 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.*
+import com.example.sadaqatpanhwer.home.homeScreen.HomeScreen
 import com.example.sadaqatpanhwer.home.R
-import com.example.sadaqatpanhwer.home.home
-import com.example.sadaqatpanhwer.home.signInOrSignUp
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -29,7 +28,7 @@ class signIn : AppCompatActivity() {
     private lateinit var userEmail:EditText
     private lateinit var userPass:EditText
     private lateinit var profile: Profile
-    private lateinit var backbtn: ImageButton
+
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -37,7 +36,7 @@ class signIn : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_signin)
                 //firebase auth
-                mAuth = FirebaseAuth.getInstance();
+                mAuth = FirebaseAuth.getInstance()
 
             userEmail = findViewById<EditText>(R.id.userName)
             userPass = findViewById<EditText>(R.id.password)
@@ -51,7 +50,7 @@ class signIn : AppCompatActivity() {
             /****************************************
              * Sign in with facebook
              ****************************************/
-        var btnLoginFacebook = findViewById<Button>(R.id.login_button)
+        val btnLoginFacebook = findViewById<Button>(R.id.login_button)
         btnLoginFacebook.setOnClickListener(View.OnClickListener {
             // Login
             callbackManager = CallbackManager.Factory.create()
@@ -84,31 +83,23 @@ class signIn : AppCompatActivity() {
             /****************************************
              * skip all setup and procces to activity
              ****************************************/
-                var startButton = findViewById<TextView>(R.id.startbtn)
+                val startButton = findViewById<TextView>(R.id.startbtn)
                 startButton.setOnClickListener(View.OnClickListener {
                     //Toast.makeText(this@signIn, "Its toast!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, home::class.java)
+                    val intent = Intent(this, HomeScreen::class.java)
                     startActivity(intent)
                 })//end of start button
 
-            /****************************************
-             * back button
-             ****************************************/
-            backbtn = findViewById<ImageButton>(R.id.backbtn)
-            backbtn.setOnClickListener(View.OnClickListener {
-                val intent = Intent(this, signInOrSignUp::class.java)
-                startActivity(intent)
-                finish()
-            })//end of start button
+
 
                 /****************************************
                  * login button for email and pass
                  ****************************************/
 
-                var loginButton = findViewById<Button>(R.id.login)
+                val loginButton = findViewById<Button>(R.id.login)
                 loginButton.setOnClickListener(View.OnClickListener {
                     // Toast.makeText(this@signIn, "Its sign in", Toast.LENGTH_SHORT).show()
-                    if(userEmail == null || userEmail.equals("null") || userEmail.length()<=0 && userPass.equals("null") || userPass==null || userPass.length()<=0){
+                    if(userEmail==null || userEmail.equals("null") || userEmail.length()<=0 && userPass.equals("null") || userPass==null || userPass.length()<=0){
                          Toast.makeText(this, "please enter username and password", Toast.LENGTH_SHORT).show()
                     }else {
                         val progressDialog = ProgressDialog.show(this, "pleease wait...", "processing..", true)
@@ -118,7 +109,7 @@ class signIn : AppCompatActivity() {
 
                             if (task.isSuccessful) {
                                 Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                                val i = Intent(this, home::class.java)
+                                val i = Intent(this, HomeScreen::class.java)
                                 //i.putExtra("Email", mAuth!!.currentUser!!.getEmail())
                                 startActivity(i)
                                 userEmail.setText("")

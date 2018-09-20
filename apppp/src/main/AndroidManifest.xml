@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     package="com.example.sadaqatpanhwer.home">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -21,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenvideo"
+        <activity
+            android:name=".SplashScreenvideo"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -30,21 +28,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".photoEditing"
+        <activity
+            android:name=".photoEditing"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FingerAndCode.signIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FingerAndCode.signIn"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".quotesActivities.quotes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".quotesActivities.quotes"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".pictures"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pictures"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -66,9 +69,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup"
+        <activity
+            android:name=".signup"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity"
             android:screenOrientation="portrait"
@@ -90,9 +94,11 @@
             android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorDrawActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar" />
-        <activity android:name=".signInOrSignUp"
+        <activity
+            android:name=".signInOrSignUp"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".homeScreen.HomeScreen"></activity>
     </application>
 
 </manifest>
