@@ -3,6 +3,7 @@ package com.smarteist.autoimageslider;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -160,6 +161,6 @@ public class SliderView {
     }
 
     public interface OnSliderClickListener {
-        void onSliderClick(SliderView sliderView);
+        Intent onSliderClick(SliderView sliderView);
     }
 }

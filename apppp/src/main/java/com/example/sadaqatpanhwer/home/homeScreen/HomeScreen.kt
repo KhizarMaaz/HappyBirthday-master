@@ -15,17 +15,26 @@ import com.blanyal.remindme.MainActivity
 import com.example.android.screen6.setting_list_adapter
 
 import com.example.sadaqatpanhwer.home.R
+import com.example.sadaqatpanhwer.home.R.drawable.user
 import com.example.sadaqatpanhwer.home.photoEditing
 import com.example.sadaqatpanhwer.home.pictures
 import com.example.sadaqatpanhwer.home.quotesActivities.quotes
+import com.example.sadaqatpanhwer.home.signInOrSignUp
+import com.facebook.AccessToken
+import com.facebook.login.LoginManager
+import com.google.firebase.auth.FirebaseAuth
 import com.readystatesoftware.systembartint.SystemBarTintManager
 import kotlinx.android.synthetic.main.activity_home_screen.*
+import kotlinx.android.synthetic.main.activity_sign_in_or_sign_up.*
 import kotlinx.android.synthetic.main.home_item_list.*
 
 import java.util.ArrayList
+import com.google.firebase.auth.FirebaseUser
+
+
 
 class HomeScreen : AppCompatActivity() {
-
+private lateinit var logout: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -73,5 +82,23 @@ class HomeScreen : AppCompatActivity() {
             }
         })
 
+        logout = findViewById<Button>(R.id.logout)
+        logout.setOnClickListener(View.OnClickListener {
+            //Toast.makeText(this@signIn, "Its toast!", Toast.LENGTH_SHORT).show()
+            val user = FirebaseAuth.getInstance().currentUser
+            val facebookAccessToken = AccessToken.getCurrentAccessToken()
+
+            if(user!=null || facebookAccessToken != null){
+                LoginManager.getInstance().logOut()
+
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, signInOrSignUp::class.java)
+                startActivity(intent)
+                finish()
+            }else{
+                Toast.makeText(this, "please first login!", Toast.LENGTH_SHORT).show()
+            }
+
+        })//end of start button
     }
 }

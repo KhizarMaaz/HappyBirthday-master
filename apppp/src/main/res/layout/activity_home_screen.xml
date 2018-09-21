@@ -4,23 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeScreen.HomeScreen"
-    android:background="@drawable/mainpageback">
+    android:background="@drawable/mainpageback"
+    tools:context=".homeScreen.HomeScreen">
 
 
-    <ListView
-
-        android:id="@+id/home_items"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:divider="@null"
-        android:dividerHeight="-4dp"
-        android:nestedScrollingEnabled="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/home_items"
+                android:layout_width="match_parent"
+                android:layout_height="620dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:divider="@null"
+                android:dividerHeight="-4dp"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:textColor="#ffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/customlogout"
+                android:backgroundTint="#359a82"/>
+        </LinearLayout>
 
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

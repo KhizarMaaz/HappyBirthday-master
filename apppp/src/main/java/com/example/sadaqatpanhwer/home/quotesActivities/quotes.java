@@ -38,7 +38,7 @@ public class quotes extends AppCompatActivity {
     private ArrayList<String> testData;
     private ImageButton whatsappButton;
     private ImageButton messenger;
-    private ImageButton facebook;
+    private ImageButton instagram;
     private Intent whatsappIntent;
     private Intent messngrIntent;
     private Intent facebookIntent;
@@ -137,8 +137,8 @@ public class quotes extends AppCompatActivity {
                 whatsappButton = v.findViewById(R.id.whatsapp);
                 //init messngr
                 messenger = v.findViewById(R.id.messenger);
-                //init fb
-                facebook = v.findViewById(R.id.facebook);
+                //init inst
+                instagram = v.findViewById(R.id.facebook);
             }//end of if
 
             ((TextView) v.findViewById(R.id.txt)).setText("hello there");
@@ -168,32 +168,16 @@ public class quotes extends AppCompatActivity {
 
                     }
                     });//end of click
-                //facebook
-                facebook.setOnClickListener(new View.OnClickListener() {
+                //instagram
+                instagram.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
-                            @Override
-                            public void onSuccess(Sharer.Result result) {
-
-                            }
-
-                            @Override
-                            public void onCancel() {
-
-                            }
-
-                            @Override
-                            public void onError(FacebookException error) {
-
-                            }
-                        });
-                        ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                                .setQuote(""+text)
-                                .build();
-                        if (ShareDialog.canShow(ShareLinkContent.class)) {
-                            shareDialog.show(linkContent);
-                        }
+                      //  Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }//end of position
@@ -221,6 +205,17 @@ public class quotes extends AppCompatActivity {
 
                     }
                 });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
+                    }
+                });//end of click
             }
             if(position==2){
                 final String text = "Dad, you are my compass. Thanks for always showing me the right path and for guiding me in the right direction. For that, I love you! Happy birthday!";
@@ -244,6 +239,17 @@ public class quotes extends AppCompatActivity {
                         messngrIntent.putExtra(Intent.EXTRA_TEXT,""+text);
                         context.startActivity(messngrIntent);
 
+                    }
+                });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }
@@ -271,6 +277,17 @@ public class quotes extends AppCompatActivity {
 
                     }
                 });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
+                    }
+                });//end of click
             }
             if(position==4){
                 final String text = "They say you lose your memory as you grow older. I say forget about the past and live life to the fullest today. Start with cake. Happy birthday.";
@@ -294,6 +311,17 @@ public class quotes extends AppCompatActivity {
                         messngrIntent.putExtra(Intent.EXTRA_TEXT,""+text);
                         context.startActivity(messngrIntent);
 
+                    }
+                });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                      //  Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }
@@ -321,6 +349,17 @@ public class quotes extends AppCompatActivity {
 
                     }
                 });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
+                    }
+                });//end of click
             }
             if(position==6){
                 final String text = "You have the biggest heart in the world! Thank you for keeping me in it. Happy birthday, Mom!";
@@ -344,6 +383,17 @@ public class quotes extends AppCompatActivity {
                         messngrIntent.putExtra(Intent.EXTRA_TEXT,""+text);
                         context.startActivity(messngrIntent);
 
+                    }
+                });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }
@@ -371,6 +421,17 @@ public class quotes extends AppCompatActivity {
 
                     }
                 });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
+                    }
+                });//end of click
             }
             if(position==8){
                 final String text = "Happy birthday, girl. May your day be filled with fun, joyous moments and true love. You will always find me beside you.";
@@ -394,6 +455,17 @@ public class quotes extends AppCompatActivity {
                         messngrIntent.putExtra(Intent.EXTRA_TEXT,""+text);
                         context.startActivity(messngrIntent);
 
+                    }
+                });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }
@@ -421,6 +493,17 @@ public class quotes extends AppCompatActivity {
 
                     }
                 });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
+                    }
+                });//end of click
             }
             if(position==10){
                 final String text = "All the colors in my life are because of you. Happy birthday to the brightest star of my life, my love.";
@@ -444,6 +527,17 @@ public class quotes extends AppCompatActivity {
                         messngrIntent.putExtra(Intent.EXTRA_TEXT,""+text);
                         context.startActivity(messngrIntent);
 
+                    }
+                });//end of click
+                instagram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(quotes.this,"something",Toast.LENGTH_SHORT).show();
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.setPackage("com.instagram.android");
+                        shareIntent.putExtra(Intent.EXTRA_TEXT,""+text);
+                        context.startActivity(shareIntent);
                     }
                 });//end of click
             }

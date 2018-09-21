@@ -1,23 +1,14 @@
 package com.example.sadaqatpanhwer.home;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
-import android.support.v4.app.ShareCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.smarteist.autoimageslider.SliderLayout;
 import com.smarteist.autoimageslider.SliderView;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 public class pictures extends AppCompatActivity {
     SliderLayout sliderLayout;
@@ -38,22 +29,40 @@ public class pictures extends AppCompatActivity {
 
     private void setSliderViews() {
 
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 9; i++) {
 
             SliderView sliderView = new SliderView(this);
 
             switch (i) {
                 case 0:
-                    sliderView.setImageDrawable(R.drawable.image3);
+                    sliderView.setImageDrawable(R.drawable.one);
                     break;
                 case 1:
-                    sliderView.setImageDrawable(R.drawable.image2);
+                    sliderView.setImageDrawable(R.drawable.two);
                     break;
                 case 2:
-                    sliderView.setImageDrawable(R.drawable.image5);
+                    sliderView.setImageDrawable(R.drawable.three);
                     break;
                 case 3:
-                    sliderView.setImageDrawable(R.drawable.image6);
+                    sliderView.setImageDrawable(R.drawable.five);
+                    break;
+                case 4:
+                    sliderView.setImageDrawable(R.drawable.six);
+                    break;
+                case 5:
+                    sliderView.setImageDrawable(R.drawable.seven);
+                    break;
+                case 6:
+                    sliderView.setImageDrawable(R.drawable.four);
+                    break;
+                case 7:
+                    sliderView.setImageDrawable(R.drawable.eight);
+                    break;
+                case 8:
+                    sliderView.setImageDrawable(R.drawable.nine);
+                    break;
+                case 9:
+                    sliderView.setImageDrawable(R.drawable.ten);
                     break;
             }
 
@@ -62,22 +71,15 @@ public class pictures extends AppCompatActivity {
 
             sliderView.setOnSliderClickListener(new SliderView.OnSliderClickListener() {
                 @Override
-                public void onSliderClick(SliderView sliderView) {
-                //    Toast.makeText(pictures.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
+                public Intent onSliderClick(SliderView sliderView) {
+                    //    Toast.makeText(pictures.this, "This is slider " + (finalI + 1), Toast.LENGTH_SHORT).show();
 
-                    //Uri imageUri = Uri.parse("R.drawable.image2");
-                    Intent shareIntent = new Intent();
-                    shareIntent.setAction(Intent.ACTION_SEND);
-                    shareIntent.setPackage("com.whatsapp");
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, "My sample image text");
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, R.drawable.image1);
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("*/*");
-                    shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    try {
-                        startActivity(shareIntent);
-                    } catch (android.content.ActivityNotFoundException ex) {
-
-                    }
+                    shareIntent.setPackage("com.instagram.android");
+                    shareIntent.putExtra(Intent.EXTRA_STREAM,""+R.drawable.drama);
+                    startActivity(shareIntent);
+                    return shareIntent;
                 }
             });
 

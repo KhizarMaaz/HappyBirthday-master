@@ -1,6 +1,7 @@
 package com.example.sadaqatpanhwer.home.FingerAndCode
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,8 +10,10 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.*
+import com.blanyal.remindme.MainActivity
 import com.example.sadaqatpanhwer.home.homeScreen.HomeScreen
 import com.example.sadaqatpanhwer.home.R
+import com.example.sadaqatpanhwer.home.photoEditing
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -18,6 +21,13 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
+import com.facebook.FacebookException
+import com.facebook.FacebookCallback
+import com.facebook.login.widget.LoginButton
+import com.facebook.CallbackManager
+import kotlinx.android.synthetic.main.activity_sign_in_or_sign_up.*
+import kotlin.math.log
+
 
 class signIn : AppCompatActivity() {
     private var callbackManager: CallbackManager? = null
@@ -50,35 +60,35 @@ class signIn : AppCompatActivity() {
             /****************************************
              * Sign in with facebook
              ****************************************/
+            callbackManager = CallbackManager.Factory.create()
         val btnLoginFacebook = findViewById<Button>(R.id.login_button)
         btnLoginFacebook.setOnClickListener(View.OnClickListener {
-            // Login
-            callbackManager = CallbackManager.Factory.create()
-            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email","fname"))
+         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"))
             LoginManager.getInstance().registerCallback(callbackManager,
                     object : FacebookCallback<LoginResult> {
                         override fun onSuccess(loginResult: LoginResult) {
-                            Toast.makeText(this@signIn, "Its toast!", Toast.LENGTH_SHORT).show()
-//                        profile = Profile.getCurrentProfile()
-//                            var id = profile.id
-//                            var firs=profile.firstName
-//
 
+                            val intent = Intent(this@signIn, HomeScreen::class.java)
+                            startActivity(intent)
+                            Toast.makeText(this@signIn, "Login successful", Toast.LENGTH_SHORT).show()
+                            Log.d("MainActivity", "successful.")
                         }//end of onsuccess
 
 
                         override fun onCancel() {
                             Log.d("MainActivity", "Facebook onCancel.")
+                            Toast.makeText(this@signIn, "on cancel", Toast.LENGTH_SHORT).show()
 
                         }
 
                         override fun onError(error: FacebookException) {
-                            Log.d("MainActivity", "Facebook onError.")
+                            Toast.makeText(this@signIn, "something goes wrong", Toast.LENGTH_SHORT).show()
 
                         }
                     })
 
         })//end of facebook button
+
 
             /****************************************
              * skip all setup and procces to activity
