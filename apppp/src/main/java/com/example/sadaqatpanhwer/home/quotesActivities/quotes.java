@@ -90,7 +90,7 @@ public class quotes extends AppCompatActivity {
 
 
 
-        Button btn3 = (Button) findViewById(R.id.button_center);
+        ImageButton btn3 = (ImageButton)findViewById(R.id.button_center);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,4 +6,9 @@
     <dimen name="card_padding">60dp</dimen>
     <dimen name="dp_10">10dp</dimen>
     <dimen name="sp_24">24sp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="editor_size">35dp</dimen>
+    <dimen name="normal_margin">8dp</dimen>
+    <dimen name="large_margin">16dp</dimen>
 </resources>

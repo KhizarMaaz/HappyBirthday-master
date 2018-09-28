@@ -1,4 +1,5 @@
 include ':apppp'
 include ':swipedeck'
 include ':autoimageslider'
-include ':app'
+include ':reminder'
+include ':photoeditor'

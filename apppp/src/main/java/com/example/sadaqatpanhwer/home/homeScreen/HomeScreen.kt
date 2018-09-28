@@ -13,13 +13,12 @@ import android.view.WindowManager
 import android.widget.*
 import com.blanyal.remindme.MainActivity
 import com.example.android.screen6.setting_list_adapter
+import com.example.sadaqatpanhwer.home.*
+import com.example.sadaqatpanhwer.home.Editing.EditImageActivity
+import com.example.sadaqatpanhwer.home.Editing.PhotoApp
 
-import com.example.sadaqatpanhwer.home.R
 import com.example.sadaqatpanhwer.home.R.drawable.user
-import com.example.sadaqatpanhwer.home.photoEditing
-import com.example.sadaqatpanhwer.home.pictures
 import com.example.sadaqatpanhwer.home.quotesActivities.quotes
-import com.example.sadaqatpanhwer.home.signInOrSignUp
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
@@ -76,7 +75,7 @@ private lateinit var logout: Button
                 }
                 4 -> {
                     //Toast.makeText(this, "new activity!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, photoEditing::class.java)
+                   val intent = Intent(this, EditImageActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -90,7 +89,6 @@ private lateinit var logout: Button
 
             if(user!=null || facebookAccessToken != null){
                 LoginManager.getInstance().logOut()
-
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, signInOrSignUp::class.java)
                 startActivity(intent)
