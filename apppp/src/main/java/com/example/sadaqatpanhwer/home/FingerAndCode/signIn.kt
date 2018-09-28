@@ -13,7 +13,6 @@ import android.widget.*
 import com.blanyal.remindme.MainActivity
 import com.example.sadaqatpanhwer.home.homeScreen.HomeScreen
 import com.example.sadaqatpanhwer.home.R
-import com.example.sadaqatpanhwer.home.photoEditing
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult

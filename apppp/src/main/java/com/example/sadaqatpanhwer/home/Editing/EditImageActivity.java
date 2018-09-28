@@ -48,27 +48,27 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         EmojiBSFragment.EmojiListener,
         StickerBSFragment.StickerListener, EditingToolsAdapter.OnItemSelected, FilterListener {
 
-    private static final String TAG = EditImageActivity.class.getSimpleName();
-    public static final String EXTRA_IMAGE_PATHS = "extra_image_paths";
-    private static final int CAMERA_REQUEST = 52;
-    private static final int PICK_REQUEST = 53;
-    private PhotoEditor mPhotoEditor;
-    private PhotoEditorView mPhotoEditorView;
-    private PropertiesBSFragment mPropertiesBSFragment;
-    private EmojiBSFragment mEmojiBSFragment;
-    private StickerBSFragment mStickerBSFragment;
-    private TextView mTxtCurrentTool;
-    private Typeface mWonderFont;
-    private RecyclerView mRvTools, mRvFilters;
-    private EditingToolsAdapter mEditingToolsAdapter = new EditingToolsAdapter(this);
-    private FilterViewAdapter mFilterViewAdapter = new FilterViewAdapter(this);
-    private ConstraintLayout mRootView;
-    private ConstraintSet mConstraintSet = new ConstraintSet();
-    private boolean mIsFilterVisible;
+private static final String TAG = EditImageActivity.class.getSimpleName();
+public static final String EXTRA_IMAGE_PATHS = "extra_image_paths";
+private static final int CAMERA_REQUEST = 52;
+private static final int PICK_REQUEST = 53;
+private PhotoEditor mPhotoEditor;
+private PhotoEditorView mPhotoEditorView;
+private PropertiesBSFragment mPropertiesBSFragment;
+private EmojiBSFragment mEmojiBSFragment;
+private StickerBSFragment mStickerBSFragment;
+private TextView mTxtCurrentTool;
+private Typeface mWonderFont;
+private RecyclerView mRvTools, mRvFilters;
+private EditingToolsAdapter mEditingToolsAdapter = new EditingToolsAdapter(this);
+private FilterViewAdapter mFilterViewAdapter = new FilterViewAdapter(this);
+private ConstraintLayout mRootView;
+private ConstraintSet mConstraintSet = new ConstraintSet();
+private boolean mIsFilterVisible;
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         makeFullScreen();
         setContentView(R.layout.activity_edit_image);
@@ -97,18 +97,18 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         //Typeface mEmojiTypeFace = Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
 
         mPhotoEditor = new PhotoEditor.Builder(this, mPhotoEditorView)
-                .setPinchTextScalable(true) // set flag to make text scalable when pinch
-                //.setDefaultTextTypeface(mTextRobotoTf)
-                //.setDefaultEmojiTypeface(mEmojiTypeFace)
-                .build(); // build photo editor sdk
+        .setPinchTextScalable(true) // set flag to make text scalable when pinch
+        //.setDefaultTextTypeface(mTextRobotoTf)
+        //.setDefaultEmojiTypeface(mEmojiTypeFace)
+        .build(); // build photo editor sdk
 
         mPhotoEditor.setOnPhotoEditorListener(this);
 
         //Set Image Dynamically
         // mPhotoEditorView.getSource().setImageResource(R.drawable.color_palette);
-    }
+        }
 
-    private void initViews() {
+private void initViews() {
         ImageView imgUndo;
         ImageView imgRedo;
         ImageView imgCamera;
@@ -140,259 +140,259 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         imgClose = findViewById(R.id.imgClose);
         imgClose.setOnClickListener(this);
 
-    }
+        }
 
-    @Override
-    public void onEditTextChangeListener(final View rootView, String text, int colorCode) {
+@Override
+public void onEditTextChangeListener(final View rootView, String text, int colorCode) {
         TextEditorDialogFragment textEditorDialogFragment =
-                TextEditorDialogFragment.show(this, text, colorCode);
+        TextEditorDialogFragment.show(this, text, colorCode);
         textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
-            @Override
-            public void onDone(String inputText, int colorCode) {
-                mPhotoEditor.editText(rootView, inputText, colorCode);
-                mTxtCurrentTool.setText(R.string.label_text);
-            }
+@Override
+public void onDone(String inputText, int colorCode) {
+        mPhotoEditor.editText(rootView, inputText, colorCode);
+        mTxtCurrentTool.setText(R.string.label_text);
+        }
         });
-    }
+        }
 
-    @Override
-    public void onAddViewListener(ViewType viewType, int numberOfAddedViews) {
+@Override
+public void onAddViewListener(ViewType viewType, int numberOfAddedViews) {
         Log.d(TAG, "onAddViewListener() called with: viewType = [" + viewType + "], numberOfAddedViews = [" + numberOfAddedViews + "]");
-    }
+        }
 
-    @Override
-    public void onRemoveViewListener(int numberOfAddedViews) {
+@Override
+public void onRemoveViewListener(int numberOfAddedViews) {
         Log.d(TAG, "onRemoveViewListener() called with: numberOfAddedViews = [" + numberOfAddedViews + "]");
-    }
+        }
 
-    @Override
-    public void onRemoveViewListener(ViewType viewType, int numberOfAddedViews) {
+@Override
+public void onRemoveViewListener(ViewType viewType, int numberOfAddedViews) {
         Log.d(TAG, "onRemoveViewListener() called with: viewType = [" + viewType + "], numberOfAddedViews = [" + numberOfAddedViews + "]");
-    }
+        }
 
-    @Override
-    public void onStartViewChangeListener(ViewType viewType) {
+@Override
+public void onStartViewChangeListener(ViewType viewType) {
         Log.d(TAG, "onStartViewChangeListener() called with: viewType = [" + viewType + "]");
-    }
+        }
 
-    @Override
-    public void onStopViewChangeListener(ViewType viewType) {
+@Override
+public void onStopViewChangeListener(ViewType viewType) {
         Log.d(TAG, "onStopViewChangeListener() called with: viewType = [" + viewType + "]");
-    }
+        }
 
-    @Override
-    public void onClick(View view) {
+@Override
+public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.imgUndo:
-                mPhotoEditor.undo();
-                break;
+        case R.id.imgUndo:
+        mPhotoEditor.undo();
+        break;
 
-            case R.id.imgRedo:
-                mPhotoEditor.redo();
-                break;
+        case R.id.imgRedo:
+        mPhotoEditor.redo();
+        break;
 
-            case R.id.imgSave:
-                saveImage();
-                break;
+        case R.id.imgSave:
+        saveImage();
+        break;
 
-            case R.id.imgClose:
-                onBackPressed();
-                break;
+        case R.id.imgClose:
+        onBackPressed();
+        break;
 
-            case R.id.imgCamera:
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-                break;
+        case R.id.imgCamera:
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        break;
 
-            case R.id.imgGallery:
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_REQUEST);
-                break;
+        case R.id.imgGallery:
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_REQUEST);
+        break;
         }
-    }
+        }
 
-    @SuppressLint("MissingPermission")
-    private void saveImage() {
+@SuppressLint("MissingPermission")
+private void saveImage() {
         if (requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            showLoading("Saving...");
-            File file = new File(Environment.getExternalStorageDirectory()
-                    + File.separator + ""
-                    + System.currentTimeMillis() + ".png");
-            try {
-                file.createNewFile();
+        showLoading("Saving...");
+        File file = new File(Environment.getExternalStorageDirectory()
+        + File.separator + ""
+        + System.currentTimeMillis() + ".png");
+        try {
+        file.createNewFile();
 
-                SaveSettings saveSettings = new SaveSettings.Builder()
-                        .setClearViewsEnabled(true)
-                        .setTransparencyEnabled(true)
-                        .build();
+        SaveSettings saveSettings = new SaveSettings.Builder()
+        .setClearViewsEnabled(true)
+        .setTransparencyEnabled(true)
+        .build();
 
-                mPhotoEditor.saveAsFile(file.getAbsolutePath(), saveSettings, new PhotoEditor.OnSaveListener() {
-                    @Override
-                    public void onSuccess(@NonNull String imagePath) {
-                        hideLoading();
-                        showSnackbar("Image Saved Successfully in device storage");
-                        mPhotoEditorView.getSource().setImageURI(Uri.fromFile(new File(imagePath)));
-                    }
-
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        hideLoading();
-                        showSnackbar("Failed to save Image");
-                    }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-                hideLoading();
-                showSnackbar(e.getMessage());
-            }
+        mPhotoEditor.saveAsFile(file.getAbsolutePath(), saveSettings, new PhotoEditor.OnSaveListener() {
+@Override
+public void onSuccess(@NonNull String imagePath) {
+        hideLoading();
+        showSnackbar("Image Saved Successfully");
+        mPhotoEditorView.getSource().setImageURI(Uri.fromFile(new File(imagePath)));
         }
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+@Override
+public void onFailure(@NonNull Exception exception) {
+        hideLoading();
+        showSnackbar("Failed to save Image");
+        }
+        });
+        } catch (IOException e) {
+        e.printStackTrace();
+        hideLoading();
+        showSnackbar(e.getMessage());
+        }
+        }
+        }
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case CAMERA_REQUEST:
-                    mPhotoEditor.clearAllViews();
-                    Bitmap photo = (Bitmap) data.getExtras().get("data");
-                    mPhotoEditorView.getSource().setImageBitmap(photo);
-                    break;
-                case PICK_REQUEST:
-                    try {
-                        mPhotoEditor.clearAllViews();
-                        Uri uri = data.getData();
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                        mPhotoEditorView.getSource().setImageBitmap(bitmap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-            }
+        switch (requestCode) {
+        case CAMERA_REQUEST:
+        mPhotoEditor.clearAllViews();
+        Bitmap photo = (Bitmap) data.getExtras().get("data");
+        mPhotoEditorView.getSource().setImageBitmap(photo);
+        break;
+        case PICK_REQUEST:
+        try {
+        mPhotoEditor.clearAllViews();
+        Uri uri = data.getData();
+        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+        mPhotoEditorView.getSource().setImageBitmap(bitmap);
+        } catch (IOException e) {
+        e.printStackTrace();
         }
-    }
+        break;
+        }
+        }
+        }
 
-    @Override
-    public void onColorChanged(int colorCode) {
+@Override
+public void onColorChanged(int colorCode) {
         mPhotoEditor.setBrushColor(colorCode);
         mTxtCurrentTool.setText(R.string.label_brush);
-    }
+        }
 
-    @Override
-    public void onOpacityChanged(int opacity) {
+@Override
+public void onOpacityChanged(int opacity) {
         mPhotoEditor.setOpacity(opacity);
         mTxtCurrentTool.setText(R.string.label_brush);
-    }
+        }
 
-    @Override
-    public void onBrushSizeChanged(int brushSize) {
+@Override
+public void onBrushSizeChanged(int brushSize) {
         mPhotoEditor.setBrushSize(brushSize);
         mTxtCurrentTool.setText(R.string.label_brush);
-    }
+        }
 
-    @Override
-    public void onEmojiClick(String emojiUnicode) {
+@Override
+public void onEmojiClick(String emojiUnicode) {
         mPhotoEditor.addEmoji(emojiUnicode);
         mTxtCurrentTool.setText(R.string.label_emoji);
 
-    }
+        }
 
-    @Override
-    public void onStickerClick(Bitmap bitmap) {
+@Override
+public void onStickerClick(Bitmap bitmap) {
         mPhotoEditor.addImage(bitmap);
         mTxtCurrentTool.setText(R.string.label_sticker);
-    }
-
-    @Override
-    public void isPermissionGranted(boolean isGranted, String permission) {
-        if (isGranted) {
-            saveImage();
         }
-    }
 
-    private void showSaveDialog() {
+@Override
+public void isPermissionGranted(boolean isGranted, String permission) {
+        if (isGranted) {
+        saveImage();
+        }
+        }
+
+private void showSaveDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you want to exit without saving image ?");
         builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                saveImage();
-            }
+@Override
+public void onClick(DialogInterface dialog, int which) {
+        saveImage();
+        }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
+@Override
+public void onClick(DialogInterface dialog, int which) {
+        dialog.dismiss();
+        }
         });
 
         builder.setNeutralButton("Discard", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
+@Override
+public void onClick(DialogInterface dialog, int which) {
+        finish();
+        }
         });
         builder.create().show();
 
-    }
-
-    @Override
-    public void onFilterSelected(PhotoFilter photoFilter) {
-        mPhotoEditor.setFilterEffect(photoFilter);
-    }
-
-    @Override
-    public void onToolSelected(ToolType toolType) {
-        switch (toolType) {
-            case BRUSH:
-                mPhotoEditor.setBrushDrawingMode(true);
-                mTxtCurrentTool.setText(R.string.label_brush);
-                mPropertiesBSFragment.show(getSupportFragmentManager(), mPropertiesBSFragment.getTag());
-                break;
-            case TEXT:
-                TextEditorDialogFragment textEditorDialogFragment = TextEditorDialogFragment.show(this);
-                textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
-                    @Override
-                    public void onDone(String inputText, int colorCode) {
-                        mPhotoEditor.addText(inputText, colorCode);
-                        mTxtCurrentTool.setText(R.string.label_text);
-                    }
-                });
-                break;
-            case ERASER:
-                mPhotoEditor.brushEraser();
-                mTxtCurrentTool.setText(R.string.label_eraser);
-                break;
-            case FILTER:
-                mTxtCurrentTool.setText(R.string.label_filter);
-                showFilter(true);
-                break;
-            case EMOJI:
-                mEmojiBSFragment.show(getSupportFragmentManager(), mEmojiBSFragment.getTag());
-                break;
-            case STICKER:
-                mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
-                break;
         }
-    }
+
+@Override
+public void onFilterSelected(PhotoFilter photoFilter) {
+        mPhotoEditor.setFilterEffect(photoFilter);
+        }
+
+@Override
+public void onToolSelected(ToolType toolType) {
+        switch (toolType) {
+        case BRUSH:
+        mPhotoEditor.setBrushDrawingMode(true);
+        mTxtCurrentTool.setText(R.string.label_brush);
+        mPropertiesBSFragment.show(getSupportFragmentManager(), mPropertiesBSFragment.getTag());
+        break;
+        case TEXT:
+        TextEditorDialogFragment textEditorDialogFragment = TextEditorDialogFragment.show(this);
+        textEditorDialogFragment.setOnTextEditorListener(new TextEditorDialogFragment.TextEditor() {
+@Override
+public void onDone(String inputText, int colorCode) {
+        mPhotoEditor.addText(inputText, colorCode);
+        mTxtCurrentTool.setText(R.string.label_text);
+        }
+        });
+        break;
+        case ERASER:
+        mPhotoEditor.brushEraser();
+        mTxtCurrentTool.setText(R.string.label_eraser);
+        break;
+        case FILTER:
+        mTxtCurrentTool.setText(R.string.label_filter);
+        showFilter(true);
+        break;
+        case EMOJI:
+        mEmojiBSFragment.show(getSupportFragmentManager(), mEmojiBSFragment.getTag());
+        break;
+        case STICKER:
+        mStickerBSFragment.show(getSupportFragmentManager(), mStickerBSFragment.getTag());
+        break;
+        }
+        }
 
 
-    void showFilter(boolean isVisible) {
+        void showFilter(boolean isVisible) {
         mIsFilterVisible = isVisible;
         mConstraintSet.clone(mRootView);
 
         if (isVisible) {
-            mConstraintSet.clear(mRvFilters.getId(), ConstraintSet.START);
-            mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.START,
-                    ConstraintSet.PARENT_ID, ConstraintSet.START);
-            mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.END,
-                    ConstraintSet.PARENT_ID, ConstraintSet.END);
+        mConstraintSet.clear(mRvFilters.getId(), ConstraintSet.START);
+        mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.START,
+        ConstraintSet.PARENT_ID, ConstraintSet.START);
+        mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.END,
+        ConstraintSet.PARENT_ID, ConstraintSet.END);
         } else {
-            mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.START,
-                    ConstraintSet.PARENT_ID, ConstraintSet.END);
-            mConstraintSet.clear(mRvFilters.getId(), ConstraintSet.END);
+        mConstraintSet.connect(mRvFilters.getId(), ConstraintSet.START,
+        ConstraintSet.PARENT_ID, ConstraintSet.END);
+        mConstraintSet.clear(mRvFilters.getId(), ConstraintSet.END);
         }
 
         ChangeBounds changeBounds = new ChangeBounds();
@@ -401,17 +401,17 @@ public class EditImageActivity extends BaseActivity implements OnPhotoEditorList
         TransitionManager.beginDelayedTransition(mRootView, changeBounds);
 
         mConstraintSet.applyTo(mRootView);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mIsFilterVisible) {
-            showFilter(false);
-            mTxtCurrentTool.setText(R.string.app_name);
-        } else if (!mPhotoEditor.isCacheEmpty()) {
-            showSaveDialog();
-        } else {
-            super.onBackPressed();
         }
-    }
-}
+
+@Override
+public void onBackPressed() {
+        if (mIsFilterVisible) {
+        showFilter(false);
+        mTxtCurrentTool.setText(R.string.app_name);
+        } else if (!mPhotoEditor.isCacheEmpty()) {
+        showSaveDialog();
+        } else {
+        super.onBackPressed();
+        }
+        }
+        }
