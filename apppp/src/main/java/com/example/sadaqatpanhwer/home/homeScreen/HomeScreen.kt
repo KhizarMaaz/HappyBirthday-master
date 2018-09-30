@@ -41,6 +41,8 @@ private lateinit var logout: Button
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_home_screen)
 
+        
+        //hello im making some bellow changes sadaqat check it and update me
         val details = ArrayList<first_listgetting>()
         details.add(first_listgetting(R.drawable.bdreminders))
         details.add(first_listgetting(R.drawable.bdpix))
