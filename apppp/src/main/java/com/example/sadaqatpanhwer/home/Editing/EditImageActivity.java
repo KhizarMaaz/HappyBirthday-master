@@ -235,6 +235,7 @@ public void onSuccess(@NonNull String imagePath) {
         hideLoading();
         showSnackbar("Image Saved Successfully");
         mPhotoEditorView.getSource().setImageURI(Uri.fromFile(new File(imagePath)));
+
         }
 
 @Override
@@ -249,6 +250,7 @@ public void onFailure(@NonNull Exception exception) {
         showSnackbar(e.getMessage());
         }
         }
+
         }
 
 @Override
