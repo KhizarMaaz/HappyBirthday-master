@@ -8,7 +8,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 
-import com.example.sadaqatpanhwer.home.FingerAndCode.signIn
+import com.example.sadaqatpanhwer.home.SignInScreen.signIn
 
 class signInOrSignUp : AppCompatActivity() {
 

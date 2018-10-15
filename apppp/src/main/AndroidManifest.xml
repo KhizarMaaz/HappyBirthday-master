@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FingerAndCode.signIn"
+            android:name=".SignInScreen.signIn"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
@@ -64,7 +64,6 @@
             android:name=".signup"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".signInOrSignUp"
             android:configChanges="orientation"
@@ -73,19 +72,19 @@
             android:name=".homeScreen.HomeScreen"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".Editing.base.BaseActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".Editing.EditImageActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
 
-            <meta-data
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
+
 </manifest>

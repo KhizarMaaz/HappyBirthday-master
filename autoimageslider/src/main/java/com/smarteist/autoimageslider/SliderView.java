@@ -3,7 +3,6 @@ package com.smarteist.autoimageslider;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -143,7 +143,11 @@ public class SliderView {
             @Override
             public void onClick(View view) {
                 if (onSliderClickListener != null) {
-                    onSliderClickListener.onSliderClick(con);
+                    try {
+                        onSliderClickListener.onSliderClick(con);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -161,6 +165,6 @@ public class SliderView {
     }
 
     public interface OnSliderClickListener {
-        Intent onSliderClick(SliderView sliderView);
+        void onSliderClick(SliderView sliderView) throws IOException;
     }
 }

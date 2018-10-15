@@ -1,7 +1,6 @@
-package com.example.sadaqatpanhwer.home.FingerAndCode
+package com.example.sadaqatpanhwer.home.SignInScreen
 
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -10,7 +9,6 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.*
-import com.blanyal.remindme.MainActivity
 import com.example.sadaqatpanhwer.home.homeScreen.HomeScreen
 import com.example.sadaqatpanhwer.home.R
 import com.facebook.*
@@ -22,10 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 import com.facebook.FacebookException
 import com.facebook.FacebookCallback
-import com.facebook.login.widget.LoginButton
 import com.facebook.CallbackManager
-import kotlinx.android.synthetic.main.activity_sign_in_or_sign_up.*
-import kotlin.math.log
 
 
 class signIn : AppCompatActivity() {
@@ -50,13 +45,7 @@ class signIn : AppCompatActivity() {
             userEmail = findViewById<EditText>(R.id.userName)
             userPass = findViewById<EditText>(R.id.password)
 
-
-            //for fb
-//            firstname = findViewById<TextView>(R.id.name)
-//            email = findViewById<TextView>(R.id.email)
-//
-
-            /****************************************
+        /****************************************
              * Sign in with facebook
              ****************************************/
             callbackManager = CallbackManager.Factory.create()
